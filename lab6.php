@@ -22,7 +22,9 @@ function convertTemp($temp, $unit1, $unit2)
     // Kelvin to Celsius = T(K) - 273.15
 
     // You need to develop the logic to convert the temperature based on the selections and input made
-
+    if ($unit1 == $unit 2) {
+        return$temp;
+    }
 } // end function
 
 // Logic to check for POST and grab data from $_POST
@@ -36,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $originalTemperature = $_POST['originaltemp'];
     $originalUnit = $_POST['originalunit'];
     $conversionUnit = $_POST['conversionunit'];
+    
     $convertedTemp = convertTemp($originalTemperature, $originalUnit, $conversionUnit);
 
 } // end if
