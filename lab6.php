@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $originalTemperature = $_POST['originaltemp'];
     $originalUnit = $_POST['originalunit'];
     $conversionUnit = $_POST['conversionunit'];
-    
+
     $convertedTemp = convertTemp($originalTemperature, $originalUnit, $conversionUnit);
 
 } // end if
