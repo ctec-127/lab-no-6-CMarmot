@@ -31,14 +31,12 @@ function convertTemp($temp, $unit1, $unit2)
     if ($unit1 == "celsius" && $unit2 == "farenheit"){
             
             $newtemp = (($temp *9/5)+32);
-          
             return $newtemp;
         }
         // Celsius to Kelvin
      if ($unit1 == "celsius" && $unit2 == "kelvin"){
         
         $newtemp = ($temp +273.15);
-      
         return $newtemp;
     }
 
@@ -46,28 +44,24 @@ function convertTemp($temp, $unit1, $unit2)
     if ($unit1 == "farenheit" && $unit2 == "celsius"){
         
         $newtemp = (($temp -32)*5/9);
-       
         return $newtemp;
     }
             // Farenheit to Celsius
     if ($unit1 == "farenheit" && $unit2 == "kelvin"){
         
         $newtemp = (($temp +459.67)*5/9);
-        
         return $newtemp;
     }
 
     if ($unit1 == "kelvin" && $unit2 == "farenheit"){
         
         $newtemp = ($temp *9/5)-459.67;
-        
         return $newtemp;
     }
 
     if ($unit1 == "kelvin" && $unit2 == "celsius"){
         
         $newtemp = ($temp -273.15);
-        
         return $newtemp;
     }
 } // end function
