@@ -10,6 +10,8 @@
 <body>
 
 <?php
+$convertedTemp = '';
+
 // function to calculate converted temperature
 function convertTemp($temp, $unit1, $unit2)
 {
@@ -27,40 +29,46 @@ function convertTemp($temp, $unit1, $unit2)
     }
     // Celsius to Farenheit
     if ($unit1 == "celsius" && $unit2 == "farenheit"){
-            echo "celsius to farenheit";
+            
             $newtemp = (($temp *9/5)+32);
-            echo $newtemp;
+          
+            return $newtemp;
         }
         // Celsius to Kelvin
      if ($unit1 == "celsius" && $unit2 == "kelvin"){
-        echo "celsius to kelvin ";
+        
         $newtemp = ($temp +273.15);
-        echo $newtemp;
+      
+        return $newtemp;
     }
 
             // Farenheit to Celsius
     if ($unit1 == "farenheit" && $unit2 == "celsius"){
-        echo "farenheit to celsius ";
+        
         $newtemp = (($temp -32)*5/9);
-        echo $newtemp;
+       
+        return $newtemp;
     }
             // Farenheit to Celsius
     if ($unit1 == "farenheit" && $unit2 == "kelvin"){
-        echo "farenheit to kelvin ";
+        
         $newtemp = (($temp +459.67)*5/9);
-        echo $newtemp;
+        
+        return $newtemp;
     }
 
     if ($unit1 == "kelvin" && $unit2 == "farenheit"){
-        echo "kelvin to farenheit ";
+        
         $newtemp = ($temp *9/5)-459.67;
-        echo $newtemp;
+        
+        return $newtemp;
     }
 
     if ($unit1 == "kelvin" && $unit2 == "celsius"){
-        echo "kelvin to celsius ";
+        
         $newtemp = ($temp -273.15);
-        echo $newtemp;
+        
+        return $newtemp;
     }
 } // end function
 
@@ -77,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conversionUnit = $_POST['conversionunit'];
 
  $convertedTemp = convertTemp($originalTemperature, $originalUnit, $conversionUnit);
-    echo $convertedTemp;
+    
 
 } // end if
 
@@ -116,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="group">
         <label for="convertedtemp">Converted Temperature</label>
-        <input type="text" value= $convertedTemp name="convertedtemp" size="14" maxlength="7" id="convertedtemp">
+        <input type="text" value="<?php echo $convertedTemp;?>" name="convertedtemp" size="14" maxlength="7" id="convertedtemp">
 
     <!-- // if the form has been POSTED we need to grab the currently selected conversion unit -->
     <?php
